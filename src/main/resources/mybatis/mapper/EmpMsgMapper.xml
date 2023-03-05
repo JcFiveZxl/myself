@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhangxinlong.demo.mapper.EmpMsgMapper">
+    <select id="queryUserList" resultType="EmpMsg">
+        select * from empMsg
+
+    </select>
+
+    <select id="queryUserById" resultType="EmpMsg">
+        select *
+        from empMsg
+        where id=#{id};
+    </select>
+
+    <insert id="addUser" parameterType="EmpMsg">
+    insert into empMsg(id,empNo,phone,address,age,description)
+    values(#{id},#{empNo},#{phone},#{address},#{age},#{description});
+
+    </insert>
+
+    <update id="updateUser" parameterType="EmpMsg">
+        update empMsg
+        set empNo=#{empNo},phone=#{phone},address=#{address},age=#{age},description=#{description}
+        where id=#{id};
+    </update>
+
+    <delete id="deleteUser" parameterType="int">
+     delete
+     from empMsg
+     where id=#{id};
+
+    </delete>
+
+</mapper>
